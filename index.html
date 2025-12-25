@@ -1,0 +1,331 @@
+From Dr-Anv
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mehmmet - Binary Theme</title>
+  <style>
+    :root{
+      --bg:#050806;
+      --green:#00ff66;
+      --green2:#00c94f;
+      --glow: 0 0 10px rgba(0,255,102,.65), 0 0 30px rgba(0,255,102,.25);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; margin:0; }
+    body{
+      background: radial-gradient(1200px 700px at 50% 30%, rgba(0,255,102,.08), transparent 60%), var(--bg);
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      color:var(--green);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    /* لایه‌ی بک‌گراند باینری */
+    .binary{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.22;
+      filter: blur(.15px);
+      mix-blend-mode: screen;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.65)),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(0,255,102,.10) 0px,
+          rgba(0,255,102,.10) 1px,
+          transparent 1px,
+          transparent 26px
+        );
+    }
+
+    .binary pre{
+      margin:0;
+      width:120%;
+      height:120%;
+      transform: translate(-10%, -10%);
+      font: 700 18px/22px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      letter-spacing: 6px;
+      color: rgba(0,255,102,.75);
+      text-shadow: 0 0 6px rgba(0,255,102,.25);
+      animation: drift 12s linear infinite;
+      user-select:none;
+      white-space:pre-wrap;
+    }
+
+    @keyframes drift{
+      0%   { transform: translate(-10%, -12%); }
+      100% { transform: translate(-10%,  2%); }
+    }
+
+    /* کارت وسط */
+    .card{
+      position:relative;
+      padding:48px 64px;
+      border:1px solid rgba(0,255,102,.25);
+      border-radius:18px;
+      background: rgba(3, 10, 6, .55);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 40px rgba(0,0,0,.55);
+    }
+
+    /* متن اصلی با Copperplate */
+    .name{
+      margin:0;
+      font-size:72px;
+      letter-spacing: 3px;
+      color: var(--green);
+      text-shadow: var(--glow);
+      /* Copperplate اولویت دارد، بعد جایگزین‌ها */
+      font-family: "Copperplate", "Copperplate Gothic Light", "Copperplate Gothic", "Papyrus", serif;
+    }
+
+    .sub{
+      margin-top:10px;
+      font: 600 14px/1.6 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: rgba(0,255,102,.75);
+      text-shadow: 0 0 8px rgba(0,255,102,.12);
+    }
+
+    /* خط اسکن */
+    .scan{
+      position:absolute;
+      left:0; right:0;
+      top:-30%;
+      height:120px;
+      background: linear-gradient(to bottom,
+        transparent,
+        rgba(0,255,102,.14),
+        transparent
+      );
+      filter: blur(0.2px);
+      animation: scan 2.6s ease-in-out infinite;
+      border-radius:18px;
+      pointer-events:none;
+    }
+
+    @keyframes scan{
+      0%   { transform: translateY(0); opacity:0; }
+      15%  { opacity:1; }
+      50%  { transform: translateY(260%); opacity:1; }
+      85%  { opacity:1; }
+      100% { transform: translateY(520%); opacity:0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="binary" aria-hidden="true">
+    <pre id="bits"></pre>
+  </div>
+
+  <main class="card">
+    <div class="scan"></div>
+    <h1 class="name">Mehmmet</h1>
+    <div class="sub">01001001 00100000 01101100 01101111 01110110 01100101 00100000 01100010 01101001 01101110 01100001 01110010 01111001</div>
+  </main>
+
+  <script>
+    // تولید رشته‌ی باینری برای بک‌گراند
+    const bitsEl = document.getElementById("bits");
+
+
+function makeBits(cols = 60, rows = 28){
+      let out = "";
+      for(let r=0; r<rows; r++){
+        for(let c=0; c<cols; c++){
+          out += (Math.random() > 0.5 ? "1" : "0") + " ";
+        }
+        out += "\n";
+      }
+      return out;
+    }
+
+    function resize(){
+      const cols = Math.max(40, Math.floor(window.innerWidth / 18));
+      const rows = Math.max(18, Math.floor(window.innerHeight / 24));
+      bitsEl.textContent = makeBits(cols, rows);
+    }
+
+    resize();
+    window.addEventListener("resize", resize);
+
+    // هر چند لحظه یکبار رفرش برای حس زنده بودن
+    setInterval(() => {
+      bitsEl.textContent = makeBits(
+        Math.max(40, Math.floor(window.innerWidth / 18)),
+        Math.max(18, Math.floor(window.innerHeight / 24))
+      );
+    }, 1200);
+  </script>
+</body>
+</html>
+My Big Brother ❤️
+
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mehmmet - Binary Theme</title>
+  <style>
+    :root{
+      --bg:#050806;
+      --green:#00ff66;
+      --green2:#00c94f;
+      --glow: 0 0 10px rgba(0,255,102,.65), 0 0 30px rgba(0,255,102,.25);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; margin:0; }
+    body{
+      background: radial-gradient(1200px 700px at 50% 30%, rgba(0,255,102,.08), transparent 60%), var(--bg);
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      color:var(--green);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    /* لایه‌ی بک‌گراند باینری */
+    .binary{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.22;
+      filter: blur(.15px);
+      mix-blend-mode: screen;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.65)),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(0,255,102,.10) 0px,
+          rgba(0,255,102,.10) 1px,
+          transparent 1px,
+          transparent 26px
+        );
+    }
+
+    .binary pre{
+      margin:0;
+      width:120%;
+      height:120%;
+      transform: translate(-10%, -10%);
+      font: 700 18px/22px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      letter-spacing: 6px;
+      color: rgba(0,255,102,.75);
+      text-shadow: 0 0 6px rgba(0,255,102,.25);
+      animation: drift 12s linear infinite;
+      user-select:none;
+      white-space:pre-wrap;
+    }
+
+    @keyframes drift{
+      0%   { transform: translate(-10%, -12%); }
+      100% { transform: translate(-10%,  2%); }
+    }
+
+    /* کارت وسط */
+    .card{
+      position:relative;
+      padding:48px 64px;
+      border:1px solid rgba(0,255,102,.25);
+      border-radius:18px;
+      background: rgba(3, 10, 6, .55);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 40px rgba(0,0,0,.55);
+    }
+
+    /* متن اصلی با Copperplate */
+    .name{
+      margin:0;
+      font-size:72px;
+      letter-spacing: 3px;
+      color: var(--green);
+      text-shadow: var(--glow);
+      /* Copperplate اولویت دارد، بعد جایگزین‌ها */
+      font-family: "Copperplate", "Copperplate Gothic Light", "Copperplate Gothic", "Papyrus", serif;
+    }
+
+    .sub{
+      margin-top:10px;
+      font: 600 14px/1.6 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: rgba(0,255,102,.75);
+      text-shadow: 0 0 8px rgba(0,255,102,.12);
+    }
+
+    /* خط اسکن */
+    .scan{
+      position:absolute;
+      left:0; right:0;
+      top:-30%;
+      height:120px;
+      background: linear-gradient(to bottom,
+        transparent,
+        rgba(0,255,102,.14),
+        transparent
+      );
+      filter: blur(0.2px);
+      animation: scan 2.6s ease-in-out infinite;
+      border-radius:18px;
+      pointer-events:none;
+    }
+
+    @keyframes scan{
+      0%   { transform: translateY(0); opacity:0; }
+      15%  { opacity:1; }
+      50%  { transform: translateY(260%); opacity:1; }
+      85%  { opacity:1; }
+      100% { transform: translateY(520%); opacity:0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="binary" aria-hidden="true">
+    <pre id="bits"></pre>
+  </div>
+
+  <main class="card">
+    <div class="scan"></div>
+    <h1 class="name">Mehmmet</h1>
+    <div class="sub">01001001 00100000 01101100 01101111 01110110 01100101 00100000 01100010 01101001 01101110 01100001 01110010 01111001</div>
+  </main>
+
+  <script>
+    // تولید رشته‌ی باینری برای بک‌گراند
+    const bitsEl = document.getElementById("bits");
+
+    function makeBits(cols = 60, rows = 28){
+      let out = "";
+      for(let r=0; r<rows; r++){
+        for(let c=0; c<cols; c++){
+          out += (Math.random() > 0.5 ? "1" : "0") + " ";
+        }
+        out += "\n";
+      }
+      return out;
+    }
+
+
+function resize(){
+      const cols = Math.max(40, Math.floor(window.innerWidth / 18));
+      const rows = Math.max(18, Math.floor(window.innerHeight / 24));
+      bitsEl.textContent = makeBits(cols, rows);
+    }
+
+    resize();
+    window.addEventListener("resize", resize);
+
+    // هر چند لحظه یکبار رفرش برای حس زنده بودن
+    setInterval(() => {
+      bitsEl.textContent = makeBits(
+        Math.max(40, Math.floor(window.innerWidth / 18)),
+        Math.max(18, Math.floor(window.innerHeight / 24))
+      );
+    }, 1200);
+  </script>
+</body>
+</html>
